@@ -14,8 +14,11 @@ class User < ActiveRecord::Base
   end
 
   def checkout_count
-    self.books.count(:title)
+    counts = self.books.group(:title).count
+    counts.map do |k, v|
+      "#{k}, #{v}"
+    end
   end
-
+  
 end
 

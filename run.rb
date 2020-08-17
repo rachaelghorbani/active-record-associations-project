@@ -5,7 +5,7 @@ def run
   puts "Hello there! Can I please have your first name?"
   name = gets.chomp
   user = User.find_or_create_by(name: name)
-  binding.pry
+  #binding.pry
   puts "Hi #{name}! We have books in the following categories, select a number to see all the books in that category."
   puts Category.all_categories
   input = gets.chomp.to_i
@@ -21,9 +21,8 @@ def run
   puts "Which book would you like to return today? Please enter the title below."
   book = gets.chomp
   user.return_book(book)
-  user.books.map do |book|
-    puts book.title
-  end
+  puts "Thanks! Here are all the books you've checked out, and how many times you've checked out each one!"
+  puts user.checkout_count
 end
 
 run
