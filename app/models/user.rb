@@ -7,9 +7,14 @@ class User < ActiveRecord::Base
   end
 
   def return_book(book)
+    book = Book.find_by(title: book)
     to_return = UserBook.find_by(user_id: self.id, book_id: book.id, returned: false)
     to_return.returned = true
     to_return.save
+  end
+
+  def checkout_count
+    self.books.count(:title)
   end
 
 end

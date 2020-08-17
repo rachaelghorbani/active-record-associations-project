@@ -11,7 +11,6 @@ gem 'rake'
 gem 'require_all'
 gem 'sqlite3'
 gem 'pry'
-gem 'faker'
-gem "awesome_print" 
+gem 'faker' 
 
 # gem "rails"
